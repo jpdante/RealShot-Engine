@@ -31,8 +31,8 @@
 *.out
 *.app
 
-# PSP Game
-/game
+# Build binaries
+Engine/Build/*
 
 # PSP Binaries
 *.elf
