@@ -16,7 +16,6 @@
 ProjectManager::ProjectManager(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::ProjectManager) {
   ui->setupUi(this);
-  loadingWindow = new Loading();
 
   // Set window at center of screen
   QRect screenGeometry = QApplication::desktop()->screenGeometry();
@@ -43,6 +42,12 @@ ProjectManager::ProjectManager(QWidget *parent)
 ProjectManager::~ProjectManager() {
   delete ui;
   delete loadingWindow;
+  if (loadingWindow != nullptr) {
+    delete loadingWindow;
+  }
+  if (mainEditor != nullptr) {
+    delete mainEditor;
+  }
 }
 
 void ProjectManager::AddProject(QString projectPath, QString projectFilename, QString iconFile) {
@@ -71,9 +76,12 @@ void ProjectManager::on_newProjectBtn_clicked() {
 }
 
 void ProjectManager::on_openProjectBtn_clicked() {
-  QString filePath = QFileDialog::getOpenFileName(
-      this, "Open Project", QDir::homePath() + "/RealShotProjects", "*.rsproject");
-  this->loadingWindow->show();
+  //QString filePath = QFileDialog::getOpenFileName(
+  //    this, "Open Project", QDir::homePath() + "/RealShotProjects", "*.rsproject");
   this->hide();
+  //this->loadingWindow = new Loading();
+  //this->loadingWindow->show();
+  this->mainEditor = new MainEditor();
+  this->mainEditor->show();
 }
 
