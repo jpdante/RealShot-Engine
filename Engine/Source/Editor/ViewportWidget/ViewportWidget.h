@@ -2,11 +2,17 @@
 
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
+#include "./Core/Render/renderer.h"
 
 class ViewportWidget : public QOpenGLWidget, QOpenGLFunctions {
 
 public:
   explicit ViewportWidget(QWidget *parent = nullptr);
+  ~ViewportWidget();
+
+private:
+  QOpenGLFunctions *glFuncs;
+  Renderer *renderer;
 
 protected:
   void initializeGL() override;

@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Core/Render/renderer.cpp \
     ViewportWidget/ViewportWidget.cpp \
     Views/Loading/Loading.cpp \
     Views/MainEditor/MainEditor.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
     Views/ProjectManager/ProjectManager.cpp
 
 HEADERS += \
+    Core/Render/renderer.h \
     ViewportWidget/ViewportWidget.h \
     Views/Loading/Loading.h \
     Views/MainEditor/MainEditor.h \
